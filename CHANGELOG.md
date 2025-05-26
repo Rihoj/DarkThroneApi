@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Rihoj/DarkThroneApi/compare/v1.1.0...v1.1.1) (2025-05-26)
+
+
+### Bug Fixes
+
+* **pkg:** hopefully fix package issues ([ad448c3](https://github.com/Rihoj/DarkThroneApi/commit/ad448c3d383994a3a5c76755951819040f7384e3))
+
 # [1.1.0](https://github.com/Rihoj/DarkThroneApi/compare/v1.0.0...v1.1.0) (2025-05-26)
 
 
