@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Rihoj/DarkThroneApi/compare/v1.0.0...v1.1.0) (2025-05-26)
+
+
+### Features
+
+* **requests:** add ddos protection ([3a30861](https://github.com/Rihoj/DarkThroneApi/commit/3a30861d67f18dd6105e1f7177726b43bbcddb59))
+
 # 1.0.0 (2025-05-26)
 
 
