@@ -26,6 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm install --global semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github
 
+      - name: Lint commit messages
+        run: |
+          npm install --no-save @commitlint/config-conventional @commitlint/cli
+          git log -1 --pretty=%B | npx commitlint
+
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

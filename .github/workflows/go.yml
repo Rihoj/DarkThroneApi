@@ -37,3 +37,8 @@ jobs:
 
       - name: Run tests
         run: go test -v ./...
+
+      - name: Lint commit messages
+        run: |
+          npm install --no-save @commitlint/config-conventional @commitlint/cli
+          git log -1 --pretty=%B | npx commitlint
