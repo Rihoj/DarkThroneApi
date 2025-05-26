@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Semantic-release config for DarkThroneApi Go module.",
-  "scripts": {},
+  "scripts": {
+    "lint": "staticcheck ./..."
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",

@@ -31,6 +31,19 @@ func main() {
 
 See GoDocs for full API reference.
 
+## Linting & Commit Requirements
+
+- All commits must follow [Conventional Commits](https://www.conventionalcommits.org/) style. This is enforced by [commitlint](https://github.com/conventional-changelog/commitlint) in CI and via a pre-commit hook.
+- Linting is enforced on every commit using [`staticcheck`](https://staticcheck.io/) for Go code. Commits will be blocked if linting fails.
+- You must have `staticcheck` installed and available in your `PATH`. Install it with:
+
+```sh
+go install honnef.co/go/tools/cmd/staticcheck@latest
+```
+
+- Node.js dev dependencies for commit linting and hooks are managed in `package.json`:
+  - `@commitlint/cli`, `@commitlint/config-conventional`, `husky`
+
 ## Development
 - Requires Go 1.24+
 - Run tests: `go test ./...`
