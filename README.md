@@ -29,10 +29,11 @@ func main() {
 }
 ```
 
-See GoDocs for full API reference.
+See GoDocs for full API reference. If published, you can also browse the API at [pkg.go.dev](https://pkg.go.dev/github.com/Rihoj/DarkThroneApi).
 
 ## Linting & Commit Requirements
 
+- **Node.js and npm are required for development tooling (commit hooks, semantic-release, etc.), but not for using the Go library itself.**
 - All commits must follow [Conventional Commits](https://www.conventionalcommits.org/) style. This is enforced by [commitlint](https://github.com/conventional-changelog/commitlint) in CI and via a pre-commit hook.
 - Linting is enforced on every commit using [`staticcheck`](https://staticcheck.io/) for Go code. Commits will be blocked if linting fails.
 - You must have `staticcheck` installed and available in your `PATH`. Install it with:
@@ -51,3 +52,11 @@ go install honnef.co/go/tools/cmd/staticcheck@latest
 
 ## License
 MIT
+
+---
+
+### Suggestions for Contributors
+- If you wish to contribute, please ensure you have Node.js, npm, and Go installed.
+- Make sure your `staticcheck` binary is in your `PATH` (e.g., add `export PATH="$HOME/go/bin:$PATH"` to your shell profile if needed).
+- For more information on GoDoc, see [pkg.go.dev](https://pkg.go.dev/github.com/Rihoj/DarkThroneApi).
+- If you have questions or suggestions, feel free to open an issue or pull request.
