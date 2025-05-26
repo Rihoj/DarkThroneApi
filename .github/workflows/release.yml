@@ -5,53 +5,24 @@ on:
   push:
     branches:
       - main
-  release:
-    types: [created]
   workflow_dispatch:
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          go-version: '1.24.3'
+          node-version: '20'
 
       - name: Install dependencies
-        run: go mod download
+        run: npm install --global semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github
 
-      - name: Build
-        run: go build ./...
-
-      - name: Test
-        run: go test -v ./...
-
-  release:
-    if: github.event_name == 'release'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.24.3'
-
-      - name: Build
-        run: go build ./...
-
-      - name: Upload Release Asset
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            DarkThroneApi
+      - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: semantic-release
