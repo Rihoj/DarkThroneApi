@@ -8,6 +8,7 @@ import (
 	"log/slog"
 	"net/http"
 	"reflect"
+	"time"
 )
 
 // ApiRequestConfig holds configuration for API requests, such as the base URL and logger.
@@ -24,6 +25,11 @@ type ApiRequest[Req any, Resp any] struct {
 	Body     Req
 	Config   *ApiRequestConfig // Optional config for request-level settings
 }
+
+var (
+	doRequestRateLimit = time.Second // Minimum delay between requests
+	lastRequestTime    time.Time
+)
 
 // isZeroValue checks if a value is the zero value for its type.
 func isZeroValue[T any](v T) bool {
@@ -75,6 +81,16 @@ func (req *ApiRequest[Req, Resp]) GetUrl() string {
 // DoRequest executes the API request and returns the response or an error.
 func (req ApiRequest[Req, Resp]) DoRequest() (Resp, error) {
 	var zero Resp
+	// Rate limiting: ensure a minimum delay between requests
+	now := time.Now()
+	if !lastRequestTime.IsZero() {
+		elapsed := now.Sub(lastRequestTime)
+		if elapsed < doRequestRateLimit {
+			time.Sleep(doRequestRateLimit - elapsed)
+		}
+	}
+	lastRequestTime = time.Now()
+
 	req.logRequest("Executing API request")
 	if req.Config == nil || req.Config.BaseURL == "" {
 		errorString := fmt.Errorf("ApiRequest.Config.BaseURL is required")
