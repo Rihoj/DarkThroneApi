@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Rihoj/DarkThroneApi/compare/v1.1.1...v1.2.0) (2025-05-27)
+
+
+### Features
+
+* **DarkThroneApi:** add ping method ([b12fd09](https://github.com/Rihoj/DarkThroneApi/commit/b12fd0999d119e70cb270dc25358c6f7ec84bb2e))
+
 ## [1.1.1](https://github.com/Rihoj/DarkThroneApi/compare/v1.1.0...v1.1.1) (2025-05-26)
 
 
