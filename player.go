@@ -303,7 +303,7 @@ func (d *DarkThroneApi) AttackPlayer(targetID string) (bool, error) {
 	response, err := ApiRequest[map[string]any, AttackResponse]{
 		Method:   "POST",
 		Endpoint: "attack",
-		Headers:  map[string]string{},
+		Headers:  d.getAuthHeaders(),
 		Body:     payload,
 		Config:   d.apiConfig,
 	}.DoRequest()
