@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Rihoj/DarkThroneApi/compare/v1.2.0...v1.2.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* **player:** add auth headers to attack ([47075c6](https://github.com/Rihoj/DarkThroneApi/commit/47075c694963b166634c2ed11cd1a92c25d43329))
+
 # [1.2.0](https://github.com/Rihoj/DarkThroneApi/compare/v1.1.1...v1.2.0) (2025-05-27)
 
 
